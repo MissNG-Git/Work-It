@@ -1,19 +1,19 @@
 const db = require("../models");
 
-module.exports = (app) => {
+module.exports = app => {
   // getLastWorkout
   app.get("/api/workouts", (req, res) => {
     db.Workout.aggregate([
       {
         $addFields: {
-          totalDuration: { $sum: "$exercises.duration" },
-        },
-      },
+          totalDuration: { $sum: "$exercises.duration" }
+        }
+      }
     ])
-      .then((getWorkouts) => {
+      .then(getWorkouts => {
         res.json(getWorkouts);
       })
-      .catch((err) => {
+      .catch(err => {
         res.json(err);
       });
   });
@@ -25,10 +25,10 @@ module.exports = (app) => {
       { $push: { exercises: req.body } },
       { new: true }
     )
-      .then((updateWorkout) => {
+      .then(updateWorkout => {
         res.json(updateWorkout);
       })
-      .catch((err) => {
+      .catch(err => {
         res.json(err);
       });
   });
@@ -36,10 +36,10 @@ module.exports = (app) => {
   // createWorkout()
   app.post("/api/workouts", ({ body }, res) => {
     db.Workout.create(body)
-      .then((createWorkout) => {
+      .then(createWorkout => {
         res.json(createWorkout);
       })
-      .catch((err) => {
+      .catch(err => {
         res.json(err);
       });
   });
@@ -49,16 +49,16 @@ module.exports = (app) => {
     db.Workout.aggregate([
       {
         $addFields: {
-          totalDuration: { $sum: "$exercises.duration" },
-        },
-      },
+          totalDuration: { $sum: "$exercises.duration" }
+        }
+      }
     ])
       .limit(7)
-      .then((rangeWorkouts) => {
+      .then(rangeWorkouts => {
         console.log("Workout Range: ", rangeWorkouts);
         res.json(rangeWorkouts);
       })
-      .catch((err) => {
+      .catch(err => {
         res.json(err);
       });
   });

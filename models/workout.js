@@ -45,8 +45,8 @@ const workoutSchema = new Schema(
         }
       }
     ]
-  },
-  // // Include Mongoose virtuals 
+  }
+  // // Include Mongoose virtuals
   // opts
 );
 
