@@ -1,61 +1,72 @@
 # Unit 17 NoSQL Homework: Workout Tracker
 
-For this assignment, you'll create a workout tracker. You have already been provided with the front end code in the `Develop` folder. This assignment will require you to create Mongo database with a Mongoose schema and handle routes with Express.
+## ⋘ ──── ∗⋅◦∘◈\[[Work It!](https://workit-00.herokuapp.com/)\]◈∘◦⋅∗ ──── ⋙
 
-## User Story
+A workout tracker that allows users to view, create & track daily workouts, _[Work It!](https://workit-00.herokuapp.com/)_ was created to help fitness enthusiasts manage their workout sessions whether for personal use or for their personal fitness business. **Work It!** allows users to track not only the name or type of exercise they are doing, but also the weight, sets, reps and duration of their workout sessions.
 
-* As a user, I want to be able to view create and track daily workouts. I want to be able to log multiple exercises in a workout on a given day. I should also be able to track the name, type, weight, sets, reps, and duration of exercise. If the exercise is a cardio exercise, I should be able to track my distance traveled.
+The app is conveniently deployed to the [Heroku Platform](https://www.heroku.com/), and features dynamic HTML, styling with CSS and data handling via MongoDB & Mongoose.
 
-## Business Context
+List of Technologies Utilized include...
 
-A consumer will reach their fitness goals more quickly when they track their workout progress.
+- HTML, CSS, Javascript
+- [Bootstrap CSS](https://getbootstrap.com/)
+- [GoogleFonts](https://fonts.google.com/)
+- [FontAwesome](https://fontawesome.com/)
+- [GitBash](https://gitforwindows.org/)
+- [Node Environment](https://nodejs.org/en/about/)
+- [Express.js Framework](https://expressjs.com/)
+- [MongoDB Atlas](https://www.mongodb.com/cloud/atlas)
+- [Mongoose Schema](https://mongoosejs.com/)
+- [Morgan package](https://www.npmjs.com/package/morgan)
+- [Travis (lint)](https://www.mongodb.com/cloud/atlas)
+- [Heroku Platform](https://www.heroku.com/)
 
-## Acceptance Criteria
+## ≫ ──── ≪•◦ OBJECTIVES ◦•≫ ──── ≪
 
-When the user loads the page, they should be given the option to create a new workout or continue with their last workout.
+```
++ AS A fitness enthusiast
++ I WANT TO be able to log multiple exercises in a workout on a given day
++ SO THAT I may reach my fitness goals more quickly by tracking my workout progress
+```
 
-The user should be able to:
+## ≫ ──── ≪•◦ MOCK-UP ◦•≫ ──── ≪
 
-  * Add exercises to the most recent workout plan.
+The following images show the web application's appearance & functionality:
 
-  * Add new exercises to a new workout plan.
+<p float="left">
+    <img src="/public/img/IMG1.png" alt="Fitness Tracker" width="250" style="margin-right: 10px;" />
+    <img src="/public/img/IMG2.png" alt="Dashboard" width="250" style="margin-right: 10px;" />
+</p>
 
-  * View the combined weight of multiple exercises from the past seven workouts on the `stats` page.
+### ≫ ──── ≪•◦ CODE FUNCTIONALITY ◦•≫ ──── ≪
 
-  * View the total duration of each workout from the past seven workouts on the `stats` page.
+- Application accurately displays data from the Last (latest) Workout.
 
-> **Important:** Look into using a MongoDB aggregate function to dynamically add up and return the total duration for each workout. Check out the [MongoDB documentation on the $addFields](https://docs.mongodb.com/manual/reference/operator/aggregation/addFields/), the [MongoDB documentation on the $sum operator](https://docs.mongodb.com/manual/reference/operator/aggregation/sum/), and the [Mongoose documentation on aggregate functions](https://mongoosejs.com/docs/api.html#aggregate_Aggregate) to learn how it can be accomplished.
+- Application allows user to choose whether to continue their previous workout or start a new workout either and adds a specified exercise accordingly.
 
-To deploy an application with a MongoDB database to Heroku, you'll need to set up a MongoDB Atlas account and connect a database from there to your application. Be sure to use the following guides for support:
+- Application displays relevant workout data (ie workout duration & pounds lifted) in the dashboard depending on which workout option was selected (continue or new), and what exercise(s) were added
 
-  * [Set Up MongoDB Atlas](../04-Important/MongoAtlas-Setup.md)
+- Application is successfully deployed to Heroku via MongoDB Atlas and can be visited [here](https://workit-00.herokuapp.com/)!
 
-  * [Deploy with Heroku and MongoDB Atlas](../04-Important/MongoAtlas-Deploy.md)
+### ≫ ──── ≪•◦ USABILITY ◦•≫ ──── ≪
 
-## Commit Early and Often
-
-One of the most important skills to master as a web developer is version control. Building the habit of committing via Git is important for the following two reasons:
-
-1. Your commit history is a signal to employers that you are actively working on projects and learning new skills.
-
-2. Your commit history allows you to revert your codebase in the event that you need to return to a previous state.
-
-Follow these guidelines for committing:
-
-* Make single-purpose commits for related changes to ensure a clean, manageable history. If you are fixing two issues, make two commits.
-
-* Write descriptive, meaningful commit messages so that you and anyone else looking at your repository can easily understand its history.
-
-* Don't commit half-done work, for the sake of your collaborators (and your future self!).
-
-* Test your application before you commit to ensure functionality at every step in the development process.
-
-We want you to have well over 200 commits by graduation, so commit early and often!
-
-## Submission on BCS
-
-You are required to submit the following:
-
-* The URL to the deployed application
-
-* The URL to the GitHub repository
+1. Navigate to deployed application page on [Heroku](https://workit-00.herokuapp.com/)
+2. Details of your last workout will be displayed on the landing page
+3. Click **Continue Workout** to add additional exercises to your already existing 'workout sess'
+4. Click **New Workout** to start a 'fresh sess' and add exercises to a new workout:
+5. To add a **Resistance** exercise:
+   > 1. Select `Resistance` from the _Exercise Type_ dropdown
+   > 2. Enter the _Exercise Name_
+   > 3. Input the _Weight_ (in pounds)
+   > 4. Input the # of _Sets_
+   > 5. Input the # of _Reps_
+   > 6. Input the Duration of the exercise (in minutes)
+6. To add a **Cardio** exercise:
+   > 1. Select `Cardio` from the _Exercise Type_ dropdown
+   > 2. Enter the _Exercise Name_
+   > 3. Input the _Distance_ (in miles)
+   > 4. Type in the Duration of the exercise (in minutes)
+   > 5. (a) Click on **Add Exercise** to add the exercise to your current workout _OR_
+   > 6. (b) Click on **Complete** to add the exercise to your workout and complete your 'workout sess'
+7. Click on **Dashboard** to see your Workout Data: Workout Duration in Minutes & Pounds Lifted
+8. Click on **Fitness Tracker** to return `Home` to the landing page
