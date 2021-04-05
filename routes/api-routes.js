@@ -3,9 +3,15 @@ const db = require("../models");
 module.exports = (app) => {
   // getLastWorkout
   app.get("/api/workouts", (req, res) => {
-    db.Workout.find({})
-      .then((dbWorkouts) => {
-        res.json(dbWorkouts);
+    db.Workout.aggregate([
+      {
+        $addFields: {
+          totalDuration: { $sum: "$exercises.duration" },
+        },
+      },
+    ])
+      .then((getWorkouts) => {
+        res.json(getWorkouts);
       })
       .catch((err) => {
         res.json(err);
@@ -14,13 +20,13 @@ module.exports = (app) => {
 
   // addExercise()
   app.put("/api/workouts/:id", (req, res) => {
-    db.Workout.findByIdAndUpdate(
+    db.Workout.findOneAndUpdate(
       { _id: req.params.id },
       { $push: { exercises: req.body } },
       { new: true }
     )
-      .then((dbWorkouts) => {
-        res.json(dbWorkouts);
+      .then((updateWorkout) => {
+        res.json(updateWorkout);
       })
       .catch((err) => {
         res.json(err);
@@ -30,8 +36,8 @@ module.exports = (app) => {
   // createWorkout()
   app.post("/api/workouts", ({ body }, res) => {
     db.Workout.create(body)
-      .then((dbWorkouts) => {
-        res.json(dbWorkouts);
+      .then((createWorkout) => {
+        res.json(createWorkout);
       })
       .catch((err) => {
         res.json(err);
@@ -40,11 +46,17 @@ module.exports = (app) => {
 
   // getWorkoutsInRange()
   app.get("/api/workouts/range", (req, res) => {
-    db.Workout.find({})
+    db.Workout.aggregate([
+      {
+        $addFields: {
+          totalDuration: { $sum: "$exercises.duration" },
+        },
+      },
+    ])
       .limit(7)
-      .then((dbWorkouts) => {
-        console.log("Workout Range: ", dbWorkout);
-        res.json(dbWorkouts);
+      .then((rangeWorkouts) => {
+        console.log("Workout Range: ", rangeWorkouts);
+        res.json(rangeWorkouts);
       })
       .catch((err) => {
         res.json(err);
