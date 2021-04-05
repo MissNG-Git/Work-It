@@ -1,5 +1,5 @@
 {
-  "name": "Work It",
+  "name": "mongoose_skeleton",
   "version": "1.0.0",
   "description": "A workout tracking app that allows users to view, create and track daily workouts.",
   "main": "server.js",
