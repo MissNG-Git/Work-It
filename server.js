@@ -17,8 +17,8 @@ app.use(morgan("dev"));
 app.use(express.static("public"));
 
 // Invoke Routes
-app.use(require("./routes/api-routes.js"));
-app.use(require("./routes/html-routes.js"));
+require("./routes/api-routes.js")(app);
+require("./routes/html-routes.js")(app);
 
 // Setup Mongoose Atlas environment
 mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/workitDB", {
