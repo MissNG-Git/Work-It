@@ -34,8 +34,8 @@ List of Technologies Utilized include...
 The following images show the web application's appearance & functionality:
 
 <p float="left">
-    <img src="/public/img/IMG1.png" alt="Fitness Tracker" width="250" style="margin-right: 10px;" />
-    <img src="/public/img/IMG2.png" alt="Dashboard" width="250" style="margin-right: 10px;" />
+    <img src="./public/img/screenshot1.PNG" alt="Fitness Tracker" width="250" style="margin-right: 10px;" />
+    <img src="./public/img/screenshot2.PNG" alt="Dashboard" width="250" style="margin-right: 10px;" />
 </p>
 
 ### ≫ ──── ≪•◦ CODE FUNCTIONALITY ◦•≫ ──── ≪
