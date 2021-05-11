@@ -1,4 +1,4 @@
-# Unit 17 NoSQL Homework: Workout Tracker
+# Unit 17 NoSQL: Workout Tracker
 
 ## ⋘ ──── ∗⋅◦∘◈\[[Work It!](https://workit-00.herokuapp.com/)\]◈∘◦⋅∗ ──── ⋙
 
